@@ -2,6 +2,7 @@ import BlogCard from "@/components/BlogCard";
 import BlogNew from "@/components/BlogNew";
 import CommentSection from "@/components/Comment";
 import Footer from "@/components/Footer";
+import TopSide from "@/components/TopSide";
 import { client } from "@/sanity/lib/client";
 // import Image from "next/image";
 
@@ -10,12 +11,12 @@ export const revalidate = 5; //seconds
 export default async function Home() {
   const query = `*[_type=='post'] | order(_createdAt asc){
   
-    summary,title,image,
+    summary,title,image,content,
       "slug":slug.current
   }` ;
 
   const blogQuery = `*[_type=='blog'] | order(_createdAt asc){
-    summary, title, image, "slug": slug.current
+    summary, title, image,content, "slug": slug.current
   }`;
 
   const posts:Post[] = await client.fetch(query)

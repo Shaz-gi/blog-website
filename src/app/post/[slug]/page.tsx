@@ -1,13 +1,18 @@
 
-// convert into jvascript
-
-
-import Image from "next/image";
+import Image from "next/image"; 
 import { client } from "../../../sanity/lib/client";
 import { urlForImage } from "../../../sanity/lib/image";
-// import { PortableText } from "@portabletext/react";
+import { PortableText } from "@portabletext/react";
 
 export const revalidate = 5;
+
+interface Params {
+  slug: string; // Define the shape of params
+}
+
+interface PageProps {
+  params: Params;
+}
 
 export async function generateStaticParams() {
   const query = `*[_type=='post']{
@@ -18,10 +23,10 @@ export async function generateStaticParams() {
   const slugs = await client.fetch(query);
 
   // Ensure slugs map correctly to the structure { slug: string }
-  return slugs.map((item) => ({ slug: item.slug }));
+  return slugs.map((post: { slug: string }) => ({ slug: post.slug }));
 }
 
-export default async function Page({ params }) {
+export default async function Page({ params }: PageProps) {
   const { slug } = params; // Extract slug safely
 
   const query = `*[_type=='post' && slug.current=="${slug}"]{
@@ -59,7 +64,7 @@ export default async function Page({ params }) {
         </section>
 
         <section className="text-lg leading-normal text-dark/80 dark:text-light/80 prose-h4:text-accentDarkPrimary prose-h4:text-3xl prose-h4:font-bold prose-li:list-disc prose-li:list-inside prose-li:marker:text-accentDarkSecondary prose-strong:text-dark dark:prose-strong:text-white">
-          {/* <PortableText value={post.content} /> */}
+          <PortableText value={post.content} />
         </section>
       </article>
     );

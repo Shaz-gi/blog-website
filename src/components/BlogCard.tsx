@@ -7,11 +7,11 @@ export default function BlogCard({post}:{post:Post}) {
         <section className="flex flex-col justify-between h-[480px] rounded bg-light/90 dark:bg-dark/40 shadow-md shadow-gray-300 dark:shadow-black/80 group hover:scale-105 transition-transform ease-out duration-700">
             <div className="relative max-h-76 flex-1">
             <Image
-  src={urlForImage(post.image) || '/fallback-image.jpg'} // Fallback image
-  alt="AI for everyone"
-  fill
-  className="object-cover rounded-t"
-/>
+            src={urlForImage(post.image) || '/fallback-image.jpg'} // Fallback image
+            alt="AI for everyone"
+            fill
+            className="object-cover rounded-t"
+            />
              </div>
 
              <div className="flex flex-col justify-between gapx-y-4 p-4">
