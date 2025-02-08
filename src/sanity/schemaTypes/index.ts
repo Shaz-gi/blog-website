@@ -1,13 +1,3 @@
-// import { type SchemaTypeDefinition } from 'sanity'
-// import blog from '../blog';
-// import news from '../[slug]/news';
-
-// export const schema: { types: SchemaTypeDefinition[] } = {
-//   types: [blog], [news] 
-
-// }
-
-// gemini type error resolve
 
 import { type SchemaTypeDefinition } from 'sanity'
 import {blog} from '../blog';

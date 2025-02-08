@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { urlForImage } from "../sanity/lib/image";
-import { blogs } from "@/sanity/blog";
 
 export default function BlogNew({blog}:{blog:Blog}) {
   return (

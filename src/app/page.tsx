@@ -2,7 +2,6 @@ import BlogCard from "@/components/BlogCard";
 import BlogNew from "@/components/BlogNew";
 import CommentSection from "@/components/Comment";
 import Footer from "@/components/Footer";
-import TopSide from "@/components/TopSide";
 import { client } from "@/sanity/lib/client";
 // import Image from "next/image";
 
